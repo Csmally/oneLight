@@ -1,10 +1,9 @@
-
 import { Text, View, StyleSheet } from 'react-native';
 
-function Home(): JSX.Element {
+function Mine(): JSX.Element {
     return (
         <View style={styles.box}>
-            <Text style={styles.content}>我是主页</Text>
+            <Text style={styles.content}>我是个人页</Text>
         </View>
     )
 }
@@ -13,7 +12,8 @@ const styles = StyleSheet.create({
     box: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: 'greenyellow'
     },
     content: {
         fontSize: 22,
@@ -21,4 +21,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Home;
+export default Mine;

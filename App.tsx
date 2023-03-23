@@ -1,38 +1,39 @@
-import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Home from '@/pages/home'
-import Orders from '@/pages/orders'
-import Forum from '@/pages/forum'
-import Mine from '@/pages/mine'
+import HomeScreen from '@/pages/homeScreen'
+import OrdersScreen from '@/pages/ordersScreen'
+import CommunityScreen from '@/pages/communityScreen'
+import MineScreen from '@/pages/mineScreen'
+import { PATH_NAME, PATH_NAME_ZH } from '@/consts/navigation';
+import CustomTabBar from '@/components/customTabBar'
 
-const TabStack = createBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 
 const App = (): JSX.Element => {
     return (
         <NavigationContainer>
-            <TabStack.Navigator>
-                <TabStack.Screen
-                    name="Home"
-                    component={Home}
-                    options={{ title: '主页' }}
+            <Tab.Navigator tabBar={(props) => <CustomTabBar {...props} />}>
+                <Tab.Screen
+                    name={PATH_NAME.HOME}
+                    component={HomeScreen}
+                    options={{ title: PATH_NAME_ZH.HOME, headerShown: false, }}
                 />
-                <TabStack.Screen
-                    name="Orders"
-                    component={Orders}
-                    options={{ title: '订单' }}
+                <Tab.Screen
+                    name={PATH_NAME.ORDERS}
+                    component={OrdersScreen}
+                    options={{ title: PATH_NAME_ZH.ORDERS }}
                 />
-                <TabStack.Screen
-                    name="Forum"
-                    component={Forum}
-                    options={{ title: '论坛' }}
+                <Tab.Screen
+                    name={PATH_NAME.COMMUNITY}
+                    component={CommunityScreen}
+                    options={{ title: PATH_NAME_ZH.COMMUNITY }}
                 />
-                <TabStack.Screen
-                    name="Mine"
-                    component={Mine}
-                    options={{ title: '我的' }}
+                <Tab.Screen
+                    name={PATH_NAME.MINE}
+                    component={MineScreen}
+                    options={{ title: PATH_NAME_ZH.MINE, headerShown: false }}
                 />
-            </TabStack.Navigator>
+            </Tab.Navigator>
         </NavigationContainer>
     );
 };

@@ -1,9 +1,9 @@
 import { Text, View, StyleSheet } from 'react-native';
 
-function Orders(): JSX.Element {
+function Community(): JSX.Element {
     return (
         <View style={styles.box}>
-            <Text style={styles.content}>我是订单页</Text>
+            <Text style={styles.content}>我是社区页</Text>
         </View>
     )
 }
@@ -12,7 +12,8 @@ const styles = StyleSheet.create({
     box: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: "#EDF0F1"
     },
     content: {
         fontSize: 22,
@@ -20,4 +21,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Orders;
+export default Community;
