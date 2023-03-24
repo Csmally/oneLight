@@ -1,12 +1,12 @@
 import { Image, StyleSheet } from "react-native"
 import { PATH_NAME } from "@/consts/navigation"
 
-interface barIconProps {
+interface BarIconProps {
     isFocused: boolean,
     pathName: string
 }
 
-function BarIcon(props: barIconProps): JSX.Element {
+function BarIcon(props: BarIconProps): JSX.Element {
     const { isFocused, pathName } = props
     let component
     switch (pathName) {

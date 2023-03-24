@@ -3,9 +3,6 @@ import { BlurView } from "@react-native-community/blur"
 import BarIcon from "./barIcon"
 
 function CustomTabBar({ state, descriptors, navigation }): JSX.Element {
-    console.log('9898state', state)
-    console.log('9898descriptors', descriptors)
-    console.log('9898navigation', navigation)
     return (
         <View style={styles.tabBarBox}>
             <BlurView style={styles.tabBarBlur} blurType={Platform.OS === "ios" ? "prominent" : "xlight"} blurAmount={100} reducedTransparencyFallbackColor="white" />
