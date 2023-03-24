@@ -6,13 +6,14 @@ import CommunityScreen from '@/pages/communityScreen'
 import MineScreen from '@/pages/mineScreen'
 import { PATH_NAME, PATH_NAME_ZH } from '@/consts/navigation';
 import CustomTabBar from '@/components/customTabBar'
+import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 
 const Tab = createBottomTabNavigator();
 
 const App = (): JSX.Element => {
     return (
         <NavigationContainer>
-            <Tab.Navigator tabBar={(props) => <CustomTabBar {...props} />}>
+            <Tab.Navigator tabBar={(props: BottomTabBarProps) => <CustomTabBar {...props} />}>
                 <Tab.Screen
                     name={PATH_NAME.HOME}
                     component={HomeScreen}
