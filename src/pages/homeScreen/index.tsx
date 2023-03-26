@@ -1,6 +1,6 @@
 import { Text, View, StyleSheet, ScrollView } from 'react-native';
 
-function Home(): JSX.Element {
+function HomeScreen(): JSX.Element {
     return (
         <ScrollView>
             <View style={{ paddingBottom: 100 }}>
@@ -42,4 +42,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Home;
+export default HomeScreen;
