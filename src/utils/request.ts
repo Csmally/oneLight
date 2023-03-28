@@ -1,3 +1,4 @@
+import { ReqMethodName } from "@/interface/enum";
 import axios, { AxiosResponse } from "axios";
 
 //请求拦截器
@@ -28,14 +29,6 @@ axios.interceptors.response.use(
         // return Promise.reject(err)
     }
 )
-
-/** 请求方法 */
- export enum ReqMethodName {
-    GET = 'get',
-    DELETE = 'delete',
-    PUT = 'put',
-    POST = 'post'
-}
 
 type Data={ [key:string]:any }
 
