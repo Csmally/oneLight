@@ -8,7 +8,7 @@ axios.interceptors.request.use(
         //     const token = getToken();
         //     if (token) config.headers.Authorization = `Bearer ${token}`;
         // }
-        // return config
+        return config
     },
     (error) => {
         //请求失败的返回，后面的then或者catch回调随便写不写
