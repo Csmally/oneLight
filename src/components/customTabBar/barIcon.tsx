@@ -1,5 +1,5 @@
 import { Image, StyleSheet } from "react-native"
-import { PATH_NAME } from "@/consts/navigation"
+import { PATH_NAME } from "@/interfaces/commonEnum"
 
 interface BarIconProps {
     isFocused: boolean,
@@ -23,7 +23,7 @@ function BarIcon(props: BarIconProps): JSX.Element {
             component = isFocused ? <Image style={styles.barIcon} source={require('@/static/mineSelect.png')}/> : <Image style={styles.barIcon} source={require('@/static/mineUnSelect.png')}/>
             break;
         default:
-            component = isFocused ? <Image style={styles.barIcon} source={require('@/static/homeSelect.png')}/> : <Image style={styles.barIcon} source={require('@/static/homeUnSelect.png')}/>
+            component = isFocused ? <Image style={styles.barIcon} source={require('@/static/notFoundSelect.png')}/> : <Image style={styles.barIcon} source={require('@/static/notFoundUnSelect.png')}/>
             break;
     }
     return (
