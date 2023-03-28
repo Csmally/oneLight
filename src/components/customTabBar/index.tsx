@@ -7,8 +7,8 @@ import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 function CustomTabBar(props: BottomTabBarProps): JSX.Element {
     const { state, descriptors, navigation } = props
     return (
-        <LinearGradient colors={[ 'rgba(237,240,241, 0)' , 'rgba(237,240,241, 0.8)', 'rgba(237,240,241, 0.9)',  'rgba(237,240,241, 1)' ]} locations={[0.1,0.2,0.3,1]} style={styles.tabBarBox}>
-            <BlurView style={styles.tabBarBlur} blurType={Platform.OS === "ios" ? "prominent" : "xlight"} blurAmount={100} reducedTransparencyFallbackColor="white" />
+        <LinearGradient colors={[ 'rgba(237,240,241, 0)' , 'rgba(237,240,241, 0.3)', 'rgba(237,240,241, 0.6)',  'rgba(237,240,241, 1)' ]} locations={[0,0.3,0.7,1]} style={styles.tabBarBox}>
+            <BlurView style={styles.tabBarBlur} blurType={Platform.OS === "ios" ? "prominent" : "xlight"} blurAmount={100} reducedTransparencyFallbackColor="balck" />
             <View style={[styles.tabBarContent,styles.tabBarBlur]}>
                 {
                     state.routes.map((route, index: number) => {

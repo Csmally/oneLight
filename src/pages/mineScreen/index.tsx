@@ -1,6 +1,6 @@
 import { Text, View, StyleSheet } from 'react-native';
 
-function Mine(): JSX.Element {
+function MineScreen(): JSX.Element {
     return (
         <View style={styles.box}>
             <Text style={styles.content}>我是个人页</Text>
@@ -21,4 +21,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Mine;
+export default MineScreen;
