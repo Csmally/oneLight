@@ -1,4 +1,4 @@
-import { ReqMethodName } from "@/interface/enum";
+import { ReqMethodName } from "@/interfaces/commonEnum";
 import axios, { AxiosResponse } from "axios";
 
 //请求拦截器
