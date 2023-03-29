@@ -1,6 +1,6 @@
 import { Text, View, StyleSheet } from 'react-native';
 
-function Orders(): JSX.Element {
+function OrdersScreen(): JSX.Element {
     return (
         <View style={styles.box}>
             <View style={styles.test}/>
@@ -36,4 +36,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Orders;
+export default OrdersScreen;

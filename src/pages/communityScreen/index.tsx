@@ -1,6 +1,6 @@
 import { Text, View, StyleSheet } from 'react-native';
 
-function Community(): JSX.Element {
+function CommunityScreen(): JSX.Element {
     return (
         <View style={styles.box}>
             <Text style={styles.content}>我是社区页</Text>
@@ -21,4 +21,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Community;
+export default CommunityScreen;

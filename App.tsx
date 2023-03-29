@@ -4,7 +4,7 @@ import HomeScreen from '@/pages/homeScreen'
 import OrdersScreen from '@/pages/ordersScreen'
 import CommunityScreen from '@/pages/communityScreen'
 import MineScreen from '@/pages/mineScreen'
-import { PATH_NAME, PATH_NAME_ZH } from '@/consts/navigation';
+import { PATH_NAME, PATH_NAME_ZH } from '@/interfaces/commonEnum';
 import CustomTabBar from '@/components/customTabBar'
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 

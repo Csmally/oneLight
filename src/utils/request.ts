@@ -1,4 +1,4 @@
-import { ReqMethodName } from "@/interface/enum";
+import { ReqMethodName } from "@/interfaces/commonEnum";
 import axios, { AxiosResponse } from "axios";
 
 //请求拦截器
@@ -23,29 +23,29 @@ axios.interceptors.response.use(
     },
     (err) => {
         // if (err.response.status === 403) {
-            // 统一处理未授权请求，跳转到登录界面
-            // document.location = '/login';
+        // 统一处理未授权请求，跳转到登录界面
+        // document.location = '/login';
         // }
         // return Promise.reject(err)
     }
 )
 
-type Data={ [key:string]:any }
+type Data = { [key: string]: any }
 
 type RequestParams = {
     method: ReqMethodName,
     url: string,
-    data?:Data
+    data?: Data
 }
 
-export function request({method,url,data}:RequestParams):Promise<AxiosResponse<any, any>>{
-  const isValidMethod =  Object.values({...ReqMethodName})?.includes(method)
-  if(!isValidMethod) return Promise.reject('method is error')
-  
-  const baseUrl = '';
-  return axios({
+export function request({ method, url, data }: RequestParams): Promise<AxiosResponse<any, any>> {
+    const isValidMethod = Object.values({ ...ReqMethodName })?.includes(method)
+    if (!isValidMethod) return Promise.reject('method is error')
+
+    const baseUrl = '';
+    return axios({
         method,
-        url:`${baseUrl}${url}`,
-        data:data ?? null
-  })
+        url: `${baseUrl}${url}`,
+        data: data ?? null
+    })
 }
