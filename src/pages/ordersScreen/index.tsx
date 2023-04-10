@@ -1,10 +1,11 @@
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, Image } from 'react-native';
 
 function OrdersScreen(): JSX.Element {
     return (
         <View style={styles.box}>
             <View style={styles.test}/>
             <Text style={styles.content}>我是订单页</Text>
+            <Image source={{uri:'https://tuchuangs.com/imgs/2023/04/02/f79365c7f272f4c3.jpeg'}} style={styles.testImg}/>
         </View>
     )
 }
@@ -33,6 +34,10 @@ const styles = StyleSheet.create({
         },
         shadowRadius: 6,
         shadowOpacity: 0.5
+    },
+    testImg: {
+        width: 300,
+        height: 200
     }
 });
 
