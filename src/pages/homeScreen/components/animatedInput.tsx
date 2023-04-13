@@ -1,6 +1,7 @@
 import { View, StyleSheet, Text, TextInput, Animated } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useEffect, useState, useRef } from 'react';
+import { getViewSize, getFontSize } from '@/utils/sizeTool';
 
 function AnimatedInput(props: any): JSX.Element {
     let { scrollDistance } = props
@@ -30,12 +31,12 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 0,
         width: '100%',
-        padding: 15,
+        padding: getViewSize(15),
         backgroundColor: 'aquamarine',
         zIndex: 1
     },
     searchText: {
-        fontSize: 22,
+        fontSize: getFontSize(22),
         fontWeight: '500'
     },
     inputBox: {

@@ -3,6 +3,7 @@ import { BlurView } from "@react-native-community/blur"
 import BarIcon from "./barIcon"
 import LinearGradient from "react-native-linear-gradient"
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
+import { getViewSize } from "@/utils/sizeTool"
 
 function CustomTabBar(props: BottomTabBarProps): JSX.Element {
     const { state, descriptors, navigation } = props
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
         right: '5%',
         bottom: '25%',
         left: '5%',
-        borderRadius: 20
+        borderRadius: getViewSize(20)
     },
     blurView: {
         position: 'absolute',

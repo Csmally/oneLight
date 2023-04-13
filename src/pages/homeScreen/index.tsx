@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { View, StyleSheet, Image, Text, Animated } from 'react-native';
 import Swiper from 'react-native-swiper';
 import AnimatedInput from './components/animatedInput';
-import { Dimensions } from 'react-native';
+import { getViewSize } from '@/utils/sizeTool';
 
 const renderData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 function HomeScreen(props: any): JSX.Element {
@@ -44,7 +44,7 @@ function HomeScreen(props: any): JSX.Element {
                 ListHeaderComponent={() => (
                     <Swiper
                         style={styles.swiper}
-                        paginationStyle={{ bottom: 15 }}
+                        paginationStyle={{ bottom: getViewSize(15) }}
                         activeDotStyle={styles.activeDot}
                         autoplay>
                         {
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
         // backgroundColor: 'pink'
     },
     swiper: {
-        height: 300
+        height: getViewSize(300)
     },
     swiperImg: {
         flex: 1
@@ -76,13 +76,9 @@ const styles = StyleSheet.create({
         width: '3%',
         backgroundColor: '#000'
     },
-    testImg: {
-        height: 200,
-        width: 300
-    },
     renderItem: {
-        marginHorizontal: 10,
-        marginVertical: 5,
+        marginHorizontal: getViewSize(10),
+        marginVertical: getViewSize(5),
         backgroundColor: 'green'
     }
 })

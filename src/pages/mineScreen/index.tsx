@@ -1,6 +1,5 @@
 import { Text, View, StyleSheet } from 'react-native';
 import { getFontSize, getViewSize } from '@/utils/sizeTool';
-import { PixelRatio } from 'react-native';
 
 function MineScreen(): JSX.Element {
     return (
@@ -22,16 +21,16 @@ const styles = StyleSheet.create({
         backgroundColor: 'greenyellow'
     },
     content: {
-        fontSize: 22,
+        fontSize: getFontSize(22),
         fontWeight: '700',
     },
     test2: {
-        width: 100,
-        height: 100,
+        width: getViewSize(100),
+        height: getViewSize(100),
         backgroundColor: 'pink'
     },
     test3: {
-        fontSize: 14
+        fontSize: getFontSize(14)
     },
     test4: {
         fontSize: getFontSize(14)

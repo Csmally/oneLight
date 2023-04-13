@@ -1,4 +1,5 @@
 import { Text, View, StyleSheet, Image } from 'react-native';
+import { getViewSize, getFontSize } from '@/utils/sizeTool';
 
 function OrdersScreen(): JSX.Element {
     return (
@@ -18,26 +19,26 @@ const styles = StyleSheet.create({
         backgroundColor: 'pink'
     },
     content: {
-        fontSize: 22,
+        fontSize: getFontSize(22),
         fontWeight: '700',
     },
     test: {
-        width:80,
-        height: 80,
-        borderRadius: 40,
+        width:getViewSize(80),
+        height: getViewSize(80),
+        borderRadius: getViewSize(40),
         backgroundColor: "white",
-        marginBottom: 50,
+        marginBottom: getViewSize(50),
         shadowColor: "black",
         shadowOffset: {
-            width: 3,
-            height: 5
+            width: getViewSize(3),
+            height: getViewSize(5)
         },
-        shadowRadius: 6,
+        shadowRadius: getViewSize(6),
         shadowOpacity: 0.5
     },
     testImg: {
-        width: 300,
-        height: 200
+        width: getViewSize(300),
+        height: getViewSize(200)
     }
 });
 

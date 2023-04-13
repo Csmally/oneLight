@@ -1,5 +1,6 @@
 import { Image, StyleSheet } from "react-native"
 import { commonEnum } from "@/interfaces"
+import { getViewSize } from "@/utils/sizeTool"
 
 interface BarIconProps {
     isFocused: boolean,
@@ -33,9 +34,9 @@ function BarIcon(props: BarIconProps): JSX.Element {
 
 const styles = StyleSheet.create({
     barIcon: {
-        width: 27,
-        height: 27,
-        marginBottom: 10
+        width: getViewSize(27),
+        height: getViewSize(27),
+        marginBottom: getViewSize(10)
     }
 })
 

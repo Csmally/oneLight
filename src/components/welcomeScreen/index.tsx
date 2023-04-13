@@ -1,4 +1,4 @@
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, View } from 'react-native';
 
 function WelcomeScreen(props: any): JSX.Element {
     const { navigation, route } = props
