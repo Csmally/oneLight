@@ -11,6 +11,10 @@
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};
 
+  // 隐藏状态栏
+  application.statusBarHidden = NO;
+  // return YES;
+
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
 
