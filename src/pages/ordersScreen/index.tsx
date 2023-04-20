@@ -1,10 +1,12 @@
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, Image } from 'react-native';
+import { getViewSize, getFontSize } from '@/utils/sizeTool';
 
 function OrdersScreen(): JSX.Element {
     return (
         <View style={styles.box}>
             <View style={styles.test}/>
             <Text style={styles.content}>我是订单页</Text>
+            <Image source={{uri:'https://tuchuangs.com/imgs/2023/04/02/f79365c7f272f4c3.jpeg'}} style={styles.testImg}/>
         </View>
     )
 }
@@ -17,22 +19,26 @@ const styles = StyleSheet.create({
         backgroundColor: 'pink'
     },
     content: {
-        fontSize: 22,
+        fontSize: getFontSize(22),
         fontWeight: '700',
     },
     test: {
-        width:80,
-        height: 80,
-        borderRadius: 40,
+        width:getViewSize(80),
+        height: getViewSize(80),
+        borderRadius: getViewSize(40),
         backgroundColor: "white",
-        marginBottom: 50,
+        marginBottom: getViewSize(50),
         shadowColor: "black",
         shadowOffset: {
-            width: 3,
-            height: 5
+            width: getViewSize(3),
+            height: getViewSize(5)
         },
-        shadowRadius: 6,
+        shadowRadius: getViewSize(6),
         shadowOpacity: 0.5
+    },
+    testImg: {
+        width: getViewSize(300),
+        height: getViewSize(200)
     }
 });
 

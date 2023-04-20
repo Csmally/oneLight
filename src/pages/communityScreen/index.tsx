@@ -1,4 +1,5 @@
 import { Text, View, StyleSheet } from 'react-native';
+import { getFontSize } from "@/utils/sizeTool"
 
 function CommunityScreen(): JSX.Element {
     return (
@@ -13,10 +14,10 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: "#EDF0F1"
+        backgroundColor: "#EDF0F1",
     },
     content: {
-        fontSize: 22,
+        fontSize: getFontSize(22),
         fontWeight: '700',
     },
 });

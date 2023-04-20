@@ -1,4 +1,4 @@
-import { ReqMethodName } from "@/interfaces/commonEnum";
+import { commonEnum } from "@/interfaces";
 import axios, { AxiosResponse } from "axios";
 
 //请求拦截器
@@ -33,13 +33,13 @@ axios.interceptors.response.use(
 type Data = { [key: string]: any }
 
 type RequestParams = {
-    method: ReqMethodName,
+    method: commonEnum.ReqMethodName,
     url: string,
     data?: Data
 }
 
 export function request({ method, url, data }: RequestParams): Promise<AxiosResponse<any, any>> {
-    const isValidMethod = Object.values({ ...ReqMethodName })?.includes(method)
+    const isValidMethod = Object.values({ ...commonEnum.ReqMethodName })?.includes(method)
     if (!isValidMethod) return Promise.reject('method is error')
 
     const baseUrl = '';
