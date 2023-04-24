@@ -8,7 +8,6 @@ const windowHeight = Dimensions.get('window').height;
 const BASE_WIN_WIDTH = commonEnum.BASE_SCREEN_SIZE.BASE_WIN_WIDTH;
 const BASE_WIN_HEIGHT = commonEnum.BASE_SCREEN_SIZE.BASE_WIN_HEIGHT;
 const viewScale = Math.min(windowWidth / BASE_WIN_WIDTH, windowHeight, BASE_WIN_HEIGHT);
-const pixelRatio = PixelRatio.get();
 const fontScale = PixelRatio.getFontScale();
 
 // 宽度&高度转换
@@ -20,6 +19,6 @@ export function getViewSize(viewSize: number) {
 }
 
 // 字体转换
-export function getFontSize(f: number): number {
-    return PixelRatio.roundToNearestPixel((f * viewScale) / fontScale);
+export function getFontSize(fontSize: number): number {
+    return PixelRatio.roundToNearestPixel((fontSize * viewScale) / fontScale);
 }

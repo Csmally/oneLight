@@ -19,7 +19,7 @@ function HomeScreen(props: any): JSX.Element {
     return (
         <View style={styles.page}>
             {/* <AnimatedHeader scrollDistance={scrollDistance} isAnimatedMid={isAnimatedMid} allAnimatedDistance={allAnimatedDistance} /> */}
-            <Animated.View style={[
+            {/* <Animated.View style={[
                 styles.titleBack,
                 {
                     opacity: scrollDistance.interpolate({
@@ -28,7 +28,7 @@ function HomeScreen(props: any): JSX.Element {
                         extrapolate: 'clamp'
                     })
                 }
-            ]} />
+            ]} /> */}
             <Animated.FlatList
                 data={renderData}
                 //禁止ios滚动弹簧效果
