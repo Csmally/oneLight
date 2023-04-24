@@ -9,7 +9,7 @@ function CustomTabBar(props: BottomTabBarProps): JSX.Element {
     const { state, descriptors, navigation } = props
     return (
         <LinearGradient colors={['rgba(237,240,241, 0)', 'rgba(237,240,241, 0.3)', 'rgba(237,240,241, 0.6)', 'rgba(237,240,241, 1)']} locations={[0, 0.3, 0.7, 1]} style={styles.tabBarBox}>
-            <View style={[styles.innerBox, { overflow: "hidden" }]}>
+            <View style={styles.innerBox}>
                 <BlurView style={styles.blurView} blurType="xlight" blurAmount={100} reducedTransparencyFallbackColor="balck" />
                 <View style={styles.tabBarContent}>
                     {
@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
         right: '5%',
         bottom: '25%',
         left: '5%',
+        overflow: "hidden",
         borderRadius: getViewSize(20)
     },
     blurView: {

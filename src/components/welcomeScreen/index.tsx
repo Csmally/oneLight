@@ -25,29 +25,31 @@ function WelcomeScreen(props: any): JSX.Element {
     return (
         <View style={styles.page}>
             <OpacitySwiper onIndexChanged={onIndexChanged} imgUrls={imgUrls} />
-            <BlurView
-                style={styles.blurView}
-                blurType="xlight"
-                blurAmount={15}
-                reducedTransparencyFallbackColor="white"
-            />
-            <View style={[styles.blurView, styles.textContainer]}>
-                <View>
-                    <PageCounter total={imgUrls.length} activeIndex={activeIndex} />
-                </View>
-                <View>
-                    <Text style={[styles.fontStyle, styles.title]}>Welcome Use OneLight</Text>
-                    <Text style={[styles.fontStyle, styles.title]}>这是一个专属年轻人的App</Text>
-                    <Text style={[styles.fontStyle, styles.content]}>在这里，你可以</Text>
-                    <Text style={[styles.fontStyle, styles.content]}>分享美食，社交，数码，时尚</Text>
-                    <Text style={[styles.fontStyle, styles.content]}>
-                        或者
-                        <Text style={[styles.fontStyle, styles.content, styles.joinUs]} onPress={joinUs}>加入我们</Text>
-                        的团队
-                    </Text>
-                </View>
-                <View style={styles.loginBtn}>
-                    <Text style={styles.loginText}>注册</Text>
+            <View style={styles.container}>
+                <BlurView
+                    style={styles.blurView}
+                    blurType="xlight"
+                    blurAmount={15}
+                    reducedTransparencyFallbackColor="white"
+                />
+                <View style={styles.sloganContainer}>
+                    <View>
+                        <PageCounter total={imgUrls.length} activeIndex={activeIndex} />
+                    </View>
+                    <View>
+                        <Text style={[styles.fontStyle, styles.title]}>Welcome Use OneLight</Text>
+                        <Text style={[styles.fontStyle, styles.title]}>这是一个专属年轻人的App</Text>
+                        <Text style={[styles.fontStyle, styles.content]}>在这里，你可以</Text>
+                        <Text style={[styles.fontStyle, styles.content]}>分享美食，社交，数码，时尚</Text>
+                        <Text style={[styles.fontStyle, styles.content]}>
+                            或者
+                            <Text style={[styles.fontStyle, styles.content, styles.joinUs]} onPress={joinUs}>加入我们</Text>
+                            的团队
+                        </Text>
+                    </View>
+                    <View style={styles.loginBtn}>
+                        <Text style={styles.loginText}>注册</Text>
+                    </View>
                 </View>
             </View>
         </View>
@@ -61,14 +63,23 @@ const styles = StyleSheet.create({
     swiperImg: {
         flex: 1
     },
+    container: {
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        top: '60%',
+        overflow: 'hidden'
+    },
     blurView: {
         position: 'absolute',
         bottom: 0,
         left: 0,
         right: 0,
-        top: '60%'
+        top: 0
     },
-    textContainer: {
+    sloganContainer: {
+        flex: 1,
         justifyContent: 'space-between',
         alignItems: 'center',
         paddingVertical: getViewSize(25)
