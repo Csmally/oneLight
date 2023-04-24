@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity, View, Platform } from "react-native"
 import { BlurView } from "@react-native-community/blur"
-import BarIcon from "./barIcon"
+import BarIcon from "./BarIcon"
 import LinearGradient from "react-native-linear-gradient"
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { getViewSize } from "@/utils/sizeTool"

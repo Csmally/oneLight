@@ -3,7 +3,7 @@ import { getViewSize, getFontSize } from '@/utils/sizeTool';
 
 function OrdersScreen(): JSX.Element {
     return (
-        <View style={styles.box}>
+        <View style={styles.page}>
             <View style={styles.test}/>
             <Text style={styles.content}>我是订单页</Text>
             <Image source={{uri:'https://tuchuangs.com/imgs/2023/04/02/f79365c7f272f4c3.jpeg'}} style={styles.testImg}/>
@@ -12,11 +12,11 @@ function OrdersScreen(): JSX.Element {
 }
 
 const styles = StyleSheet.create({
-    box: {
+    page: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'pink'
+        backgroundColor: '#EDF0F1'
     },
     content: {
         fontSize: getFontSize(22),
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
         borderRadius: getViewSize(40),
         backgroundColor: "white",
         marginBottom: getViewSize(50),
-        shadowColor: "black",
+        shadowColor: "#333333",
         shadowOffset: {
             width: getViewSize(3),
             height: getViewSize(5)

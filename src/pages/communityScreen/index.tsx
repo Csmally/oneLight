@@ -3,14 +3,14 @@ import { getFontSize } from "@/utils/sizeTool"
 
 function CommunityScreen(): JSX.Element {
     return (
-        <View style={styles.box}>
+        <View style={styles.page}>
             <Text style={styles.content}>我是社区页</Text>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    box: {
+    page: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',

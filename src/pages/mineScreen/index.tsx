@@ -3,7 +3,7 @@ import { getFontSize, getViewSize } from '@/utils/sizeTool';
 
 function MineScreen(): JSX.Element {
     return (
-        <View style={styles.box}>
+        <View style={styles.page}>
             {/* <Text style={styles.content}>我是个人页</Text> */}
             <View style={styles.test2}></View>
             <Text style={styles.test3}>字</Text>
@@ -14,11 +14,11 @@ function MineScreen(): JSX.Element {
 }
 
 const styles = StyleSheet.create({
-    box: {
+    page: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'greenyellow'
+        backgroundColor: '#EDF0F1'
     },
     content: {
         fontSize: getFontSize(22),
