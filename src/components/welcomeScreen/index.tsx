@@ -2,7 +2,7 @@ import { StyleSheet, View, Text } from 'react-native';
 import { getFontSize, getViewSize } from '@/utils/sizeTool';
 import { BlurView } from "@react-native-community/blur";
 import PageCounter from './components/PageCounter'
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import OpacitySwiper from './components/OpacitySwiper';
 
 const imgUrls = [
@@ -24,7 +24,9 @@ function WelcomeScreen(props: any): JSX.Element {
     }
     return (
         <View style={styles.page}>
-            <OpacitySwiper onIndexChanged={onIndexChanged} imgUrls={imgUrls} />
+            {
+                useMemo(()=><OpacitySwiper onIndexChanged={onIndexChanged} imgUrls={imgUrls} />,[])
+            }
             <View style={styles.container}>
                 <BlurView
                     style={styles.blurView}
