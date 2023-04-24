@@ -22,7 +22,7 @@ function PageCounter({ total, activeIndex }: PageCounterProps) {
 
 const styles = StyleSheet.create({
     container: {
-        height: getViewSize(18),
+        height: '13%',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',

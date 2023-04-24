@@ -1,9 +1,10 @@
-import { StyleSheet, View, Text } from 'react-native';
-import { getFontSize, getViewSize } from '@/utils/sizeTool';
+import { StyleSheet, View } from 'react-native';
 import { BlurView } from "@react-native-community/blur";
 import PageCounter from './components/PageCounter'
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import OpacitySwiper from './components/OpacitySwiper';
+import SloganTab from './components/SloganTab'
+import LoginMethodsTab from './components/LoginMethodsTab';
 
 const imgUrls = [
     'https://tuchuangs.com/imgs/2023/04/23/945f7dee14fb39f4.jpeg',
@@ -13,19 +14,22 @@ const imgUrls = [
 function WelcomeScreen(props: any): JSX.Element {
     const { navigation, route } = props
     const [activeIndex, setActiveIndex] = useState(0)
+    const [tabFlag, setTabFlag] = useState('sloganTab')
     const start = () => {
         navigation.navigate('MainScreenStack')
     }
-    const joinUs = () => {
-        console.log('加入我们！！！')
-    }
+
     const onIndexChanged = (index: number) => {
         setActiveIndex(index)
     }
+
+    const changeTab = useCallback((tabFlag: string) => {
+        setTabFlag(tabFlag)
+    }, [])
     return (
         <View style={styles.page}>
             {
-                useMemo(()=><OpacitySwiper onIndexChanged={onIndexChanged} imgUrls={imgUrls} />,[])
+                useMemo(() => <OpacitySwiper onIndexChanged={onIndexChanged} imgUrls={imgUrls} />, [])
             }
             <View style={styles.container}>
                 <BlurView
@@ -34,26 +38,10 @@ function WelcomeScreen(props: any): JSX.Element {
                     blurAmount={15}
                     reducedTransparencyFallbackColor="white"
                 />
-                <View style={styles.sloganContainer}>
-                    <View>
-                        <PageCounter total={imgUrls.length} activeIndex={activeIndex} />
-                    </View>
-                    <View>
-                        <Text style={[styles.fontStyle, styles.title]}>Welcome Use OneLight</Text>
-                        <Text style={[styles.fontStyle, styles.title]}>这是一个专属年轻人的App</Text>
-                        <Text style={[styles.fontStyle, styles.content]}>在这里，你可以</Text>
-                        <Text style={[styles.fontStyle, styles.content]}>分享美食，社交，数码，时尚</Text>
-                        <Text style={[styles.fontStyle, styles.content]}>
-                            或者
-                            <Text style={[styles.fontStyle, styles.content, styles.joinUs]} onPress={joinUs}>加入我们</Text>
-                            的团队
-                        </Text>
-                    </View>
-                    <View style={styles.loginBtn}>
-                        <Text style={styles.loginText}>注册</Text>
-                    </View>
-                </View>
-            </View>
+                <PageCounter total={imgUrls.length} activeIndex={activeIndex} />
+                <SloganTab tabFlag={tabFlag} changeTab={changeTab} />
+                <LoginMethodsTab tabFlag={tabFlag} changeTab={changeTab} />
+            </View >
         </View>
     )
 }
@@ -79,41 +67,6 @@ const styles = StyleSheet.create({
         left: 0,
         right: 0,
         top: 0
-    },
-    sloganContainer: {
-        flex: 1,
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        paddingVertical: getViewSize(25)
-    },
-    fontStyle: {
-        textAlign: 'center',
-        marginVertical: getViewSize(4)
-    },
-    title: {
-        fontSize: getFontSize(18),
-        fontWeight: '600'
-    },
-    content: {
-        fontSize: getFontSize(15),
-        color: '#999999'
-    },
-    joinUs: {
-        color: '#4597f7'
-    },
-    loginBtn: {
-        width: getViewSize(150),
-        height: getViewSize(46),
-        borderRadius: getViewSize(23),
-        backgroundColor: '#000000',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    loginText: {
-        color: '#ffffff',
-        fontSize: getFontSize(16),
-        fontWeight: 'bold'
     }
 })
 export default WelcomeScreen;
