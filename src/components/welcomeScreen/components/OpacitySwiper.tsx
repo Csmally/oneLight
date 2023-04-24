@@ -2,18 +2,14 @@ import React, { useEffect, useState } from "react"
 import { StyleSheet, View } from "react-native"
 import AnimatedImage from "./AnimatedImage"
 
-const imgUrls = [
-    'https://tuchuangs.com/imgs/2023/04/23/945f7dee14fb39f4.jpeg',
-    'https://tuchuangs.com/imgs/2023/04/23/d12921d23883b1d7.jpeg',
-    'https://tuchuangs.com/imgs/2023/04/23/1bc98cb602be8e78.jpeg'
-]
 type OpacitySwiperProps = {
-    onIndexChanged: (index: number) => void
+    onIndexChanged: (index: number) => void,
+    imgUrls: string[]
 }
-function OpacitySwiper({ onIndexChanged }: OpacitySwiperProps) {
+function OpacitySwiper({ onIndexChanged, imgUrls }: OpacitySwiperProps) {
     const [activeIndex, setActiveIndex] = useState(0)
     useEffect(() => {
-        let timer = setInterval(() => {
+        let timer = setTimeout(() => {
             if (activeIndex === imgUrls.length - 1) {
                 setActiveIndex(0)
                 onIndexChanged(0)
@@ -21,7 +17,7 @@ function OpacitySwiper({ onIndexChanged }: OpacitySwiperProps) {
                 setActiveIndex(activeIndex + 1)
                 onIndexChanged(activeIndex + 1)
             }
-        }, 6000)
+        }, 5000);
         return () => {
             clearInterval(timer)
         }

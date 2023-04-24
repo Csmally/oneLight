@@ -24,7 +24,7 @@ function WelcomeScreen(props: any): JSX.Element {
     }
     return (
         <View style={styles.page}>
-            <OpacitySwiper onIndexChanged={onIndexChanged}/>
+            <OpacitySwiper onIndexChanged={onIndexChanged} imgUrls={imgUrls} />
             <BlurView
                 style={styles.blurView}
                 blurType="xlight"
