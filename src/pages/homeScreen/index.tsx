@@ -1,70 +1,68 @@
-import { useRef } from 'react';
-import { View, StyleSheet, Image, Text, Animated } from 'react-native';
+import { View, StyleSheet, Image, Text, Animated, TouchableOpacity } from 'react-native';
 import Swiper from 'react-native-swiper';
-import AnimatedInput from './components/animatedInput';
 import { getViewSize } from '@/utils/sizeTool';
 
 const renderData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-function HomeScreen(props: any): JSX.Element {
-    const imgUrls = [
-        'https://tuchuangs.com/imgs/2023/04/02/683c8d110a207f96.jpeg',
-        'https://tuchuangs.com/imgs/2023/04/02/f3903cc60270bee6.jpeg',
-        'https://tuchuangs.com/imgs/2023/04/02/1b5c65b8010f7cbc.jpeg',
-        'https://tuchuangs.com/imgs/2023/04/02/5a2b21f1ff9ca97f.jpeg',
-        'https://tuchuangs.com/imgs/2023/04/02/8a498e8d63d8d721.jpeg',
-        'https://tuchuangs.com/imgs/2023/04/02/0e79c842c30fa544.jpeg',
-        'https://tuchuangs.com/imgs/2023/04/02/f79365c7f272f4c3.jpeg',
-        'https://tuchuangs.com/imgs/2023/04/02/00c3969d3c81cda2.jpeg'
 
-    ]
+function HomeScreen(props: any): JSX.Element {
 
     const { navigation, route } = props
 
-    const scrollDistance = useRef(new Animated.Value(0)).current
+    const onScroll = () => {
+        console.log('9898滑动')
+    }
 
-    const onScroll = Animated.event([{
-        nativeEvent: {
-            contentOffset: {
-                y: scrollDistance
-            }
-        }
-    }], { useNativeDriver: true })
+    const onPress = () => {
+        console.log('9898我是item啊啊')
+    }
 
     return (
-        <View>
-            <AnimatedInput scrollDistance={scrollDistance} />
+        <View style={styles.page}>
+            {/* <AnimatedHeader scrollDistance={scrollDistance} isAnimatedMid={isAnimatedMid} allAnimatedDistance={allAnimatedDistance} /> */}
+            {/* <Animated.View style={[
+                styles.titleBack,
+                {
+                    opacity: scrollDistance.interpolate({
+                        inputRange: [0, allAnimatedDistance],
+                        outputRange: [1, 1],
+                        extrapolate: 'clamp'
+                    })
+                }
+            ]} /> */}
             <Animated.FlatList
-                style={styles.pageContent}
                 data={renderData}
                 //禁止ios滚动弹簧效果
                 // bounces={true}
                 onScroll={onScroll}
                 // 后续具体数量需要结合实际优化
                 // initialNumToRender={10}
-                ListHeaderComponent={() => (
-                    <Swiper
-                        style={styles.swiper}
-                        paginationStyle={{ bottom: getViewSize(15) }}
-                        activeDotStyle={styles.activeDot}
-                        autoplay>
-                        {
-                            imgUrls.map((uri, index) => <Image source={{ uri }} key={index} style={styles.swiperImg} />)
-                        }
-                    </Swiper>
-                )}
-                renderItem={({ item, index, separators }) => (
-                    <View style={styles.renderItem}>
-                        <Text>{index}</Text>
-                        <Text>{'我是第' + item + '个'}</Text>
-                    </View>
+                // ListHeaderComponent={() => (
+                //     <Swiper
+                //         style={styles.swiper}
+                //         paginationStyle={{ bottom: getViewSize(15) }}
+                //         activeDotStyle={styles.activeDot}
+                //         autoplay>
+                //         {
+                //             imgUrls.map((uri, index) => <Image source={{ uri }} fadeDuration={100} key={index} style={styles.swiperImg} />)
+                //         }
+                //     </Swiper>
+                // )}
+                renderItem={({ item, index }) => (
+                    <TouchableOpacity onPress={onPress}>
+                        <View style={styles.renderItem}>
+                            <Text>{index}</Text>
+                            <Text>{'我是第' + item + '个'}</Text>
+                        </View>
+                    </TouchableOpacity>
                 )} />
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    pageContent: {
-        // backgroundColor: 'pink'
+    page: {
+        flex: 1,
+        backgroundColor: '#EDF0F1'
     },
     swiper: {
         height: getViewSize(300)
@@ -74,12 +72,20 @@ const styles = StyleSheet.create({
     },
     activeDot: {
         width: '3%',
-        backgroundColor: '#000'
+        backgroundColor: '#a3a3a3'
     },
     renderItem: {
         marginHorizontal: getViewSize(10),
         marginVertical: getViewSize(5),
         backgroundColor: 'green'
+    },
+    titleBack: {
+        position: 'absolute',
+        top: 0,
+        width: '100%',
+        height: getViewSize(100),
+        backgroundColor: 'pink',
+        zIndex: 1
     }
 })
 
